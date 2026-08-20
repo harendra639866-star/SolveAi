@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolveAI - AI Question Solver</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f1117;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .header {
+      padding: 18px;
+      text-align: center;
+      border-bottom: 1px solid #292d38;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .tagline {
+      color: #9ca3af;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: auto;
+      padding: 30px 16px;
+    }
+
+    .welcome {
+      text-align: center;
+      margin: 35px 0;
+    }
+
+    .welcome h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .welcome p {
+      color: #9ca3af;
+    }
+
+    .chat-box {
+      background: #181b23;
+      border: 1px solid #303542;
+      border-radius: 18px;
+      padding: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      resize: none;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 16px;
+    }
+
+    textarea::placeholder {
+      color: #777d89;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .send {
+      background: white;
+      color: black;
+      font-weight: bold;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .tool {
+      background: #181b23;
+      border: 1px solid #303542;
+      color: white;
+      padding: 18px;
+      border-radius: 14px;
+      text-align: left;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 20px;
+      background: #181b23;
+      border: 1px solid #303542;
+      border-radius: 15px;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .welcome h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">🤖 SolveAI</div>
+    <div class="tagline">Ask. Understand. Solve.</div>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+      <h1>Ask anything. Solve anything.</h1>
+      <p>Your AI-powered question solving assistant.</p>
+    </section>
+
+    <div class="chat-box">
+      <textarea id="question"
+        placeholder="Type your question here..."></textarea>
+
+      <div class="bottom">
+        <button onclick="addImage()">📷</button>
+        <button class="send" onclick="askQuestion()">Send ➤</button>
+      </div>
+    </div>
+
+    <div id="answer" class="answer"></div>
+
+    <div class="tools">
+      <button class="tool">🧮 Math Solver</button>
+      <button class="tool">📝 Quiz</button>
+      <button class="tool">📚 Study Tutor</button>
+      <button class="tool">🌐 Translator</button>
+    </div>
+
+  </main>
+
+  <script>
+    function askQuestion() {
+      const question = document.getElementById("question").value.trim();
+      const answer = document.getElementById("answer");
+
+      if (!question) {
+        alert("Please enter a question.");
+        return;
+      }
+
+      answer.style.display = "block";
+
+      answer.innerHTML =
+        "<b>🤖 SolveAI</b><br><br>" +
+        "Your question was received:<br><br>" +
+        "<b>" + question.replace(/</g, "&lt;") + "</b><br><br>" +
+        "AI connection will be added in the next step.";
+    }
+
+    function addImage() {
+      alert("Image question solver will be added next.");
+    }
+  </script>
+
+</body>
+</html>
